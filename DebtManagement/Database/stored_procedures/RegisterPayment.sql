@@ -24,7 +24,7 @@ BEGIN
         INSERT INTO Payments (DebtID, PaymentDate, AmountPaid, Notes)
         VALUES (@DebtID, @PaymentDate, @AmountPaid, @Notes);
 
-        DECLARE @PaymentID INT = SCOPE_IDENTITY();
+        
         DECLARE @UnassignedPaymentAmount MONEY = @AmountPaid;
 
 

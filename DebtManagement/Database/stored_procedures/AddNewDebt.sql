@@ -59,13 +59,13 @@ BEGIN
         DECLARE @NewDebtID INT = SCOPE_IDENTITY();
         DECLARE @StandardInstallmentAmount MONEY = ROUND(@Amount / @Installments, 2);
         DECLARE @TotalAssignedAmount MONEY = 0.0;
-        DECLARE @i INT = 0;
+        DECLARE @i INT = 1;
 
-        WHILE @i < @Installments
+        WHILE @i <= @Installments
         BEGIN
             DECLARE @InstallmentAmount MONEY;
 
-            IF @i = @Installments - 1
+            IF @i = @Installments
                 SET @InstallmentAmount = @Amount - @TotalAssignedAmount;
             ELSE
                 SET @InstallmentAmount = @StandardInstallmentAmount;
